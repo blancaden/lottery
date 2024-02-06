@@ -1,16 +1,11 @@
+import React from "react";
 
-import React from 'react'
-import FormList from '../../FormList/FormList'
-import '../PageAdmin/PageAdmin.css'
 
-const PageAdmin = () => {
-  return (
-    < main className='page_body'>
-    
-      <FormList />
-      
-    </main>
-  )
+function PageAdmin(){
+    return(
+        
+        </>
+    )
 }
 
-export default PageAdmin
+export default PageAdmin;

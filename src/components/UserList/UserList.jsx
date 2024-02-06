@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { datosForm } from '../../datosForm';
-// import swal from 'sweetalert';
+import { userService } from '../server/config';
+import swal from 'sweetalert';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const { getUsers, createUser, deleteUser, updateUser } = userService
 
-const FormList = () => {
+const UserList = () => {
   const [userList, setUserList] = useState([]);
   const [inputValues, setInputValues] = useState({
     userName: '',
@@ -106,6 +106,10 @@ const FormList = () => {
   return (
     <>
       <div className="formBody">
+        <nav className="formBody--header">
+          <a href="index.html"><img src="../img/escudo.svg" alt="Escudo escuela" className="escudo" /></a>
+          <h1>Listado escolar</h1>
+        </nav>
 
         <main className="formMain">
           <section>
@@ -180,6 +184,10 @@ const FormList = () => {
             <Button variant="light" onClick={() => savedList()}>Guardar lista</Button>
           </section>
         </main>
+
+        <footer className='footer'>
+          <section>© Fem-Coders</section>
+        </footer>
       </div>
     </>
   );

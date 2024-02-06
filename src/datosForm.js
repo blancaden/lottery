@@ -1,39 +1,34 @@
-import axios from "axios";
-import { json } from "react-router-dom";
+import axios from "axios"
 
-const apiClient = axios.create({
-    baseURL:'http://localhost:3000',
+const api = axios.create ({
+    baseURL: 'http://localhost:3000',
     withCredentials: false,
     headers: {
-        Accept:'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
     }
 })
 
-    export const datosForm = {
+const datosForm = {
+    getUsers: async() => {
+        const { data } = await api.get("/users")
+        return data
+    },
 
-        async getAllUsers() {
+    createUser: async(body) => {
+        const { status } = await api.post("/users",body)
+        return status
+    },
 
-            let response = await apiClient.get("/users")
-            let allUsers = response.data //para acceder a los datos 
+    deleteUser: async(id) => {
+        const { status } = await api.delete(`/users/${id}`)
+        return status
+    },
 
-            return allUsers
-        },
+    updateUser: async(body) => {
+        const { status } = await api.put(`/users/${body.id}`, body)
+        return status
+    }
+}
 
-        async submitUser(newUser){
-
-            await apiClient.post("/users", newUser)
-        },
-
-            async deleteUser(userId) {
-              try {
-                await apiClient.delete(`/users/${userId}`);
-              } catch (error) {
-                console.error('Error al eliminar el usuario:', error);
-                throw error; 
-              }
-            },
-          };
-       
-
-
+export { datosForm }
