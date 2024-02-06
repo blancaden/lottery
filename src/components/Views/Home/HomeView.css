@@ -1,0 +1,121 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+.school-name-main,
+.college,
+.login {
+    
+    display: flex;
+}
+
+.title-image {
+    width: 70%;
+    height: 30vh;
+    
+}
+
+.title-image img {
+    width: 90%;
+    height: 100%;
+    
+   
+}
+
+.person-list {
+    display: flex;
+    background-color: #B0C8DC;
+}
+
+.person-list img {
+    margin-top: 10px;
+    width: 130px;
+    margin-left: 70px;
+}
+
+.person-list p {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 25px;
+    margin-left: 20px;
+    margin-top: 40px;
+    line-height: 1.3;
+    color: #3774A7;
+    
+}
+
+.college img {
+  
+    width: 100%;
+}
+
+.login {
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    
+    
+     
+}
+.login strong{
+   background-color: #95D1CC;
+   width: 150px;
+   height: 60px;
+   border-radius: 50px;
+   margin-bottom: 20px;
+}
+
+.button-login {
+
+    margin-top: 20%;
+    color: #22577E;
+    font-size: 40px;
+    text-decoration: none;
+    margin-left: 20px;
+   
+   
+}
+
+@media screen and (max-width: 430px) {
+
+    .main {
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    .school-name-main{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+      
+    }
+
+    .title-image{
+        width: 100%;
+        height: 200px;
+    }
+
+    .person-list {
+        display: flex;
+        
+    }
+
+    .person-list img {
+        margin-left: 10px;
+    }
+    
+    .person-list p{
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    
+
+}

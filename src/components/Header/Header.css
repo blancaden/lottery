@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+
+.nav-bar {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #5584AC;
+
+
+}
+
+.nav-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.btn-log {
+
+    width: 140px;
+    height: 57px;
+    border: none;
+    font-family: 'Verdana', 'sans-serif';
+    border-radius: 40px;
+    background-color: #95D1CC;
+}
+
+

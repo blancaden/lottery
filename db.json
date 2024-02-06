@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "3eeb",
+      "name": "Esperanza",
+      "surname1": "Guitierrez",
+      "surname2": "Basconsuelo",
+      "rol": "Docente",
+      "curso": "Infantil",
+      "clase": "2A",
+      "email": "esperanza@gmail.com"
+    },
+    {
+      "id": "52e6",
+      "name": "Blanca",
+      "surname1": "Gonzalez",
+      "surname2": "Campos",
+      "rol": "Estudiante",
+      "curso": "Informática",
+      "clase": "3B",
+      "email": "blankdgonzfigue@gmail.com"
+    },
+    {
+      "id": "c5c1",
+      "name": " Celia",
+      "surname1": "Gonzalez",
+      "surname2": " Estigarribi",
+      "rol": "Docente",
+      "curso": "WebfullStack",
+      "clase": " 1A",
+      "email": "celia@gmaill.com"
+    }
+  ]
+}
