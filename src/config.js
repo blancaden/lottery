@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create ({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3000/',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -9,7 +9,7 @@ const api = axios.create ({
     }
 })
 
-const datosForm = {
+const userService = {
     getUsers: async() => {
         const { data } = await api.get("/users")
         return data
@@ -31,4 +31,4 @@ const datosForm = {
     }
 }
 
-export { datosForm }
+export { userService }

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { datosForm } from '../../datosForm';
-import Swal from 'sweetalert2';
-
+import { userService } from '../../config';
+import swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const { getUsers, createUser, deleteUser, updateUser } = datosForm
+const { getUsers, createUser, deleteUser, updateUser } = userService
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -38,14 +36,14 @@ const UserList = () => {
 
   
   if (isNaN(userPhone) || userPhone.length < 9) {
-    swal("Atención",'Por favor, ingrese un número de teléfono válido.', "error");
+    // swal("Atención",'Por favor, ingrese un número de teléfono válido.', "error");
     return;
   }
 
   
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(userEmail)) {
-    swal("Atención", 'Por favor, ingrese una dirección de correo electrónico válida.', "error");
+    // swal("Atención", 'Por favor, ingrese una dirección de correo electrónico válida.', "error");
     return;
   }
 
@@ -58,7 +56,7 @@ const UserList = () => {
  
   const text = isEditMode ? "actualizado" : "creado"
   if (statusCode === 201 || statusCode === 200) {
-    swal("Éxito", `Usuario ${text} con éxito`, "success")
+    // swal("Éxito", `Usuario ${text} con éxito`, "success")
   };
 
   fetchUser();
@@ -88,7 +86,7 @@ const UserList = () => {
     fetchUser();
 
     if (status === 200 ){
-      swal("Éxito", 'El usuario se ha eliminado con exito', "success")
+      // swal("Éxito", 'El usuario se ha eliminado con exito', "success")
     }
   };
 
@@ -183,9 +181,9 @@ const UserList = () => {
           </section>
         </main>
 
-        <footer className='footer'>
+        {/* <footer className='footer'>
           <section>© Fem-Coders</section>
-        </footer>
+        </footer> */}
       </div>
     </>
   );
