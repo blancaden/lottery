@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import HomeView from '../Views/Home/HomeView';
 import PageAdmin from '../Views/PageAdmin/PageAdmin';
+import menuView from '../Views/menuView/menuView';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
          <Route path="/" element={<HomeView setIsLogoutVisible={setIsLogoutVisible} />} />
          <Route path="/PageAdmin" element={<PageAdmin />} />
+         <Route path="/menuView" element={<menuView />} />
       </Routes>
 
       <Footer />
