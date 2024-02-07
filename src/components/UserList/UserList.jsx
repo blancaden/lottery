@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { userService } from '../server/config';
-import swal from 'sweetalert';
+import { datosForm } from '../../datosForm';
+import Swal from 'sweetalert2';
+
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const { getUsers, createUser, deleteUser, updateUser } = userService
+const { getUsers, createUser, deleteUser, updateUser } = datosForm
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -106,10 +108,6 @@ const UserList = () => {
   return (
     <>
       <div className="formBody">
-        <nav className="formBody--header">
-          <a href="index.html"><img src="../img/escudo.svg" alt="Escudo escuela" className="escudo" /></a>
-          <h1>Listado escolar</h1>
-        </nav>
 
         <main className="formMain">
           <section>
