@@ -4,7 +4,7 @@ const menuView = () => {
   return (
     <>
         <div className="img-homeView-cole" >
-            <img src="img/img" alt="santa-tecla" />
+            <img src="img/img-homeView.png" alt="santa-tecla" />
         </div>
 
     </>
