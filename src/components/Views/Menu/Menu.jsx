@@ -1,20 +1,26 @@
 import React from 'react'
 import '../Menu/Menu.css';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Menu = () => {
   return (
     <>
-     <DropdownButton id="dropdown-item-button" title="Dropdown button">
-      <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-      <Dropdown.Item as="button">Action</Dropdown.Item>
-      <Dropdown.Item as="button">Another action</Dropdown.Item>
-      <Dropdown.Item as="button">Something else</Dropdown.Item>
-    </DropdownButton>
-  
-        <img  className='menuImg' src="img/img-homeView.png" alt="santa-tecla" />
+    <div className='groupButtons'>
+      <Button variant="primary" size="lg">Nuestra escuela</Button>{' '}
+      <Button variant="outline-info" size="lg">Noticias</Button>{' '}
+      <Button variant="outline-info" size="lg">Oferta académica</Button>{' '}
+      <Button variant="outline-info" size="lg">Docentes</Button>{' '}
+      <Button variant="outline-info" size="lg">Inscripciones</Button>{' '}
+      <Button variant="outline-info" size="lg">Sorteos</Button>{' '}
+      <Link to="/PageAdmin" className="btn-add-user">
+      <Button variant="outline-info" size="lg">Registrar Usuario</Button>{' '}
+      </Link>
+      <Button variant="outline-dark" size="lg">CONTACTO</Button>
+      </div>
+
+
+      <img  className='menuImg' src="img/img-homeView.png" alt="santa-tecla" />
 
     </>
   )

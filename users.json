@@ -1,22 +1,6 @@
 {
   "users": [
     {
-      "userName": "Germán",
-      "userSurname1": "Cecconello",
-      "userSurname2": "De la Fuente",
-      "userEmail": "checo@live.com",
-      "userPhone": "611258963",
-      "id": "a3ca"
-    },
-    {
-      "userName": "Stefania",
-      "userSurname1": "Luna",
-      "userSurname2": "Palacio",
-      "userEmail": "stefi@live.com",
-      "userPhone": "611654533",
-      "id": "a826"
-    },
-    {
       "id": "b875",
       "userName": "Blanca",
       "userSurname1": "Gonzalez",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { userService } from '../../config';
 import swal from 'sweetalert2';
+import '../UserList/UserList.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -125,7 +126,7 @@ const UserList = () => {
               <label htmlFor="userPhone">Phone Number</label>
               <input type="number" name="userPhone" value={inputValues.userPhone} onChange={handleInputChange} />
 
-              <Button style={{ backgroundColor: '#EBDEF0', color: 'black' }} onClick={handleAddUserToList}>{buttonText}</Button>
+              <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleAddUserToList}>{buttonText}</Button>
             </section>
           </section>
 
@@ -176,8 +177,8 @@ const UserList = () => {
             </Table>
 
           <section className="listButtons">
-            <Button variant="light" onClick={() => fetchUser()}>Cargar lista</Button>
-            <Button variant="light" onClick={() => savedList()}>Guardar lista</Button>
+            <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
+            <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => savedList()}>Guardar lista</Button>
           </section>
         </main>
 
