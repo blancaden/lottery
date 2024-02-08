@@ -18,8 +18,8 @@ const LoginModal = () => {
     return (
         <>
             <div className='principal'>
-                <div className='secundario'>
-                    <Button variant="primary" size="lg" onClick={abrirModal}>Mostrar Modal</Button>{' '}
+                <div className='col-md-1 mx-auto'>
+                <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg" onClick={abrirModal}>ACCESS</Button>{' '}
                 </div>
             </div>
 
