@@ -14,6 +14,9 @@
     padding-bottom: 5%;
 }
 
+.formBody--header button {
+    height: fit-content;
+}
 
 .formMain {
     height: 80%;
@@ -37,7 +40,7 @@
 
 .formMain .form input {
     border-radius: 5px;
-    background-color: #FFEBCC;
+    background-color: #B0C8DC;
 }
 
 .formMain .form .btnAdd {

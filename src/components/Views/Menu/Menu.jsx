@@ -8,22 +8,21 @@ const Menu = () => {
   return (
     <>
      
-
-     <div className='groupButtons'>
-      <Button  variant="primary" size="lg">Nuestra escuela</Button>{' '}
-      <Button variant="outline-info" size="lg">Noticias</Button>{' '}
-      <Button variant="outline-info" size="lg">Oferta académica</Button>{' '}
-      <Button variant="outline-info" size="lg">Docentes</Button>{' '}
-      <Button variant="outline-info" size="lg">Inscripciones</Button>{' '}
-      <Button variant="outline-info" size="lg">Sorteos</Button>{' '}
+    <div className='groupButtons'>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Nuestra escuela</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Noticias</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Oferta académica</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Docentes</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Inscripciones</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Sorteos</Button>{' '}
       <Link to="/PageAdmin" className="btn-add-user">
-      <Button variant="outline-info" size="lg">Registrar Usuario</Button>{' '}
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Registrar Usuario</Button>{' '}
       </Link>
-      <Button variant="outline-dark" size="lg">CONTACTO</Button>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">CONTACTO</Button>
       </div>
 
       <section className='menuImg'>
-        <img src="img/img-homeView.png" alt="santa-tecla" />
+          <img src="img/img-homeView.png" alt="santa-tecla" />
       </section>
     </>
   )
