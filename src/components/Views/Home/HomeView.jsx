@@ -2,6 +2,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../Home/HomeView.css'
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css'
+import LoginModal from '../../LoginModal/LoginModal';
 
 const HomeView = ({ setIsLogoutVisible }) => {
     // Cuando se monta la vista Home, oculta el botón de logout
@@ -27,16 +30,19 @@ const HomeView = ({ setIsLogoutVisible }) => {
                     <img src="img/image 4.svg" alt="college-photo" />
                 </section>
 
-                <section className="login" >
+                <LoginModal/>
+              
 
-                    <strong>
-                        <Link to= "/PageAdmin" className="button-login" >Login</Link>
-                    </strong>
+                {/* <section className="login" > */}
 
-                </section>
+                    {/* <strong>
+                        <Link to= "/PageAdmin" className="button-login" >Access</Link>
+                    </strong> */}
+
+                {/* </section> */}
 
             </section >
-
+           
         </>
     )
 }

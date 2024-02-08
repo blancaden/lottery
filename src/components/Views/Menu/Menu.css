@@ -1,0 +1,16 @@
+.menuImg{
+    
+   margin-top: 5px;
+}
+
+.menuImg img {
+    width: 100%;
+    height: 120vh;
+    opacity: 0.5;
+}
+.groupButtons{
+    padding: 20px;
+    margin-left: 20px;
+}
+
+
