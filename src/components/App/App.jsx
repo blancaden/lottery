@@ -5,6 +5,7 @@ import HomeView from '../Views/Home/HomeView';
 import PageAdmin from '../Views/PageAdmin/PageAdmin';
 import Menu from '../Views/Menu/Menu';
 import { Routes, Route } from 'react-router-dom';
+import LoginModal from '../LoginModal/LoginModal';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
          <Route path="/" element={<HomeView setIsLogoutVisible={setIsLogoutVisible} />} />
          <Route path="/PageAdmin" element={<PageAdmin />} />
          <Route path="/Menu" element={<Menu />} />
+         <Route path="/LoginModal" element={<LoginModal />} />
       </Routes>
 
       <Footer />
