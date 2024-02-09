@@ -13,7 +13,9 @@ const Menu = () => {
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Noticias</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Oferta académica</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Inscripciones</Button>{' '}
+      <Link to="/Lottery" className="btn-lottery">
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Sorteos</Button>{' '}
+      </Link>
       <Link to="/PageAdmin" className="btn-add-user">
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Registrar Usuario</Button>{' '}
       </Link>

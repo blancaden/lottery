@@ -7,6 +7,7 @@ import PageAdmin from '../Views/PageAdmin/PageAdmin';
 import Menu from '../Views/Menu/Menu';
 import { Routes, Route } from 'react-router-dom';
 import LoginModal from '../LoginModal/LoginModal';
+import Lottery from '../Views/Lottery/Lottery';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
          <Route path="/PageAdmin" element={<PageAdmin />} />
          <Route path="/Menu" element={<Menu />} />
          <Route path="/LoginModal" element={<LoginModal />} />
+         <Route path="/Lottery" element={<Lottery />} />
       </Routes>
 
       <Footer />
