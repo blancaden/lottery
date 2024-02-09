@@ -12,7 +12,6 @@ const Menu = () => {
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Nuestra escuela</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Noticias</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Oferta académica</Button>{' '}
-      <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Docentes</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Inscripciones</Button>{' '}
       <Button style={{ backgroundColor: '#22577E', color: 'white' }} size="lg">Sorteos</Button>{' '}
       <Link to="/PageAdmin" className="btn-add-user">

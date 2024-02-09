@@ -78,7 +78,7 @@ const LoginModal = () => {
                     </FormGroup>
 
                     <Button color="info" onClick={toggleMostrarPassword}>
-                        check
+                        Check
                     </Button>
 
                 </ModalBody>
