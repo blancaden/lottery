@@ -180,6 +180,7 @@ const UserList = () => {
             <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
             <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => savedList()}>Guardar lista</Button>
           </section>
+          
         </main>
 
         {/* <footer className='footer'>
