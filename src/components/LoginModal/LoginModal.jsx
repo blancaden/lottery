@@ -13,15 +13,17 @@ const LoginModal = () => {
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
 
-    const [redirectToModal, setRedirectToModal] = useState(false);
 
     const navigate = useNavigate();
-  
 
 
     const abrirModal = () => {
-        setAbierto(!abierto);
-    }
+        setAbierto(true);
+    };
+
+    const cerrarModal = () => {
+        setAbierto(false);
+    };
 
     const toggleMostrarPassword = () => {
         setMostrarPassword(!mostrarPassword);
@@ -30,27 +32,26 @@ const LoginModal = () => {
 
     const handleUsuarioChange = (e) => {
         setUsuario(e.target.value);
+
     };
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
-    };
 
+    };
 
     const iniciarSesion = () => {
         if (usuario.trim() !== '' && password.trim() !== '') {
-            // Cambia esta línea para redireccionar a /Menu solo si los campos están completados
+
             navigate('/Menu');
+           
+            cerrarModal();
         } else {
+
             alert('Por favor, completa todos los campos antes de iniciar sesión.');
-            // Puedes quitar esta línea si no deseas redirigir cuando los campos están vacíos
-            // setRedirectToModal(true);
         }
     };
 
-    // if (redirectToModal) {
-    //     navigate('/Menu');
-    // }
 
     return (
         <>
@@ -60,7 +61,7 @@ const LoginModal = () => {
                 </div>
             </div>
 
-            <Modal isOpen={abierto} toggle={abrirModal}>
+            <Modal isOpen={abierto} toggle={cerrarModal}>
 
                 <ModalHeader>
                     Iniciar Sesión
@@ -69,11 +70,11 @@ const LoginModal = () => {
                 <ModalBody>
                     <FormGroup>
                         <Label for="usuario"> Usuario </Label>
-                        <Input type="text" id="usuario" />
+                        <Input type="text" id="usuario" value={usuario} onChange={handleUsuarioChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="password"> Contraseña </Label>
-                        <Input type={mostrarPassword ? 'text' : 'password'} id="password" />
+                        <Input type={mostrarPassword ? 'text' : 'password'} id="password" value={password} onChange={handlePasswordChange} />
                     </FormGroup>
 
                     <Button color="info" onClick={toggleMostrarPassword}>
@@ -82,11 +83,12 @@ const LoginModal = () => {
 
                 </ModalBody>
 
+
                 <ModalFooter>
-                         <Link to= "/Menu" className="btn-go" >
-                             <Button color="primary" onClick={iniciarSesion} > Iniciar Sesión </Button>
-                        </Link>
-                    <Button color="secondary" onClick={abrirModal}> Cerrar </Button>{' '}
+
+                    <Button color="primary" onClick={iniciarSesion}>Iniciar Sesión</Button>
+                    <Button color="secondary" onClick={cerrarModal}>Cerrar</Button>
+
                 </ModalFooter>
 
 

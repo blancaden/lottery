@@ -30,19 +30,10 @@ const HomeView = ({ setIsLogoutVisible }) => {
                     <img src="img/image 4.svg" alt="college-photo" />
                 </section>
 
-                <LoginModal/>
-              
-
-                {/* <section className="login" > */}
-
-                    {/* <strong>
-                        <Link to= "/PageAdmin" className="button-login" >Access</Link>
-                    </strong> */}
-
-                {/* </section> */}
+                <LoginModal />
 
             </section >
-           
+
         </>
     )
 }
