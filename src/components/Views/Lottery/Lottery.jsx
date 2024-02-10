@@ -26,6 +26,39 @@ const UserList = () => {
     }
   };
 
+  //primera prueba de sorteo//
+  // const handleSorteo = () => {
+  //   if (userList.length === 0) {
+  //     Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
+  //     return;
+  //   }
+
+  //   const ganadorIndex = Math.floor(Math.random() * userList.length);
+  //   const ganador = userList[ganadorIndex];
+
+  //   Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
+  // };
+
+  //SEGUNDA PRUEBA//
+
+  const handleSorteo = () => {
+    if (userList.length === 0) {
+      Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
+      return;
+    }
+
+    const ganadorIndex = Math.floor(Math.random() * userList.length);
+    const ganador = userList[ganadorIndex];
+
+    // Muestra el resultado del sorteo
+    Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
+
+    // Elimina al ganador de la lista
+    const nuevaLista = userList.filter((user) => user.id !== ganador.id);
+    setUserList(nuevaLista);
+  };
+
+  
   return (
     <div>
       <Table striped bordered hover size="sm" responsive="lg">
@@ -64,6 +97,9 @@ const UserList = () => {
       <section className="listButtons">
         <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
         {/* Button for saving list removed */}
+        <Button variant="success" onClick={handleSorteo}>
+          Realizar Sorteo
+        </Button>
       </section>
     </div>
   );
