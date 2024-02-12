@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const { getUsers, deleteUser, updateUser } = userService;
 
@@ -25,20 +26,7 @@ const UserList = () => {
     Swal.fire('Error', 'Hubo un problema al eliminar el usuario', 'error');
     }
   };
-
-  //primera prueba de sorteo//
-  // const handleSorteo = () => {
-  //   if (userList.length === 0) {
-  //     Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
-  //     return;
-  //   }
-
-  //   const ganadorIndex = Math.floor(Math.random() * userList.length);
-  //   const ganador = userList[ganadorIndex];
-
-  //   Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
-  // };
-
+  
   //SEGUNDA PRUEBA//
 
   const handleSorteo = () => {
@@ -51,7 +39,7 @@ const UserList = () => {
     const ganador = userList[ganadorIndex];
 
     // Muestra el resultado del sorteo
-    Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
+    Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1}`, 'info');
 
     // Elimina al ganador de la lista
     const nuevaLista = userList.filter((user) => user.id !== ganador.id);
@@ -95,12 +83,13 @@ const UserList = () => {
       </Table>
 
       <section className="listButtons">
-        <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
-        {/* Button for saving list removed */}
-        <Button variant="success" onClick={handleSorteo}>
-          Realizar Sorteo
-        </Button>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
+      <Link to="/PageAdmin" className="btn-edit-list">
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
+      </Link>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSorteo}>Realizar Sorteo</Button>
       </section>
+
     </div>
   );
 };

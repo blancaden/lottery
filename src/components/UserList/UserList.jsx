@@ -5,6 +5,7 @@ import '../UserList/UserList.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const { getUsers, createUser, deleteUser, updateUser } = userService
 
@@ -178,7 +179,9 @@ const UserList = () => {
 
           <section className="listButtons">
             <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
-            <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => savedList()}>Guardar lista</Button>
+            <Link to="/Lottery" className="btn-info-lottery">
+            <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => savedList()}>Ir a Sorteos</Button>
+            </Link>
           </section>
           
         </main>
