@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import UserList from '../UserList/UserList';
+// import UserList from '../UserList/userList';
 import HomeView from '../Views/Home/HomeView';
 import PageAdmin from '../Views/PageAdmin/PageAdmin';
 import Menu from '../Views/Menu/Menu';

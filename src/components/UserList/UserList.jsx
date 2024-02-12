@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { userService } from '../../config';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import '../UserList/UserList.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -37,14 +37,14 @@ const UserList = () => {
 
   
   if (isNaN(userPhone) || userPhone.length < 9) {
-    // swal("Atención",'Por favor, ingrese un número de teléfono válido.', "error");
+    Swal.fire('Atención', 'Por favor, ingrese un número válido', 'error');
     return;
   }
 
   
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(userEmail)) {
-    // swal("Atención", 'Por favor, ingrese una dirección de correo electrónico válida.', "error");
+    Swal.fire('Atención', 'Por favor, ingrese una dirección de correo electrónico válida.', 'error');
     return;
   }
 
@@ -57,7 +57,7 @@ const UserList = () => {
  
   const text = isEditMode ? "actualizado" : "creado"
   if (statusCode === 201 || statusCode === 200) {
-    // swal("Éxito", `Usuario ${text} con éxito`, "success")
+    Swal.fire('Éxito', `Usuario ${text} con éxito`, 'success');
   };
 
   fetchUser();
@@ -87,7 +87,7 @@ const UserList = () => {
     fetchUser();
 
     if (status === 200 ){
-      // swal("Éxito", 'El usuario se ha eliminado con exito', "success")
+      Swal.fire('Éxito', 'El usuario se ha eliminado con exito', 'success')
     }
   };
 
