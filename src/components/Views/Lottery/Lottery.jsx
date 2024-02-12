@@ -3,13 +3,14 @@ import { userService } from '../../../config';
 import Swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import Roulette from 'react-roulette-game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const { getUsers, deleteUser, updateUser } = userService;
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
+  const [tasks, setTasks] = useState(["Organizar fecha de exámenes", "Definir libros de texto", "Coordinar actividades de orientación", "Coordinar actividades de tutoría"]); // Define tus opciones de tareas
+
 
   const fetchUser = async () => {
     const users = await getUsers();
@@ -27,21 +28,12 @@ const UserList = () => {
     }
   };
 
-  //primera prueba de sorteo//
-  // const handleSorteo = () => {
-  //   if (userList.length === 0) {
-  //     Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
-  //     return;
-  //   }
 
-  //   const ganadorIndex = Math.floor(Math.random() * userList.length);
-  //   const ganador = userList[ganadorIndex];
-
-  //   Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
-  // };
-    //primera prueba de sorteo//
-
-  //SEGUNDA PRUEBA//
+   //SORTEO//
+   const assignTaskToWinner = (ganador) => {
+    const tareaAsignada = tasks[Math.floor(Math.random() * tasks.length)];
+    Swal.fire('Tarea Asignada', `El ganador ${ganador.userName} ha sido asignado a la tarea: ${tareaAsignada}`, 'info');
+  };
 
   const handleSorteo = () => {
     if (userList.length === 0) {
@@ -52,14 +44,14 @@ const UserList = () => {
     const ganadorIndex = Math.floor(Math.random() * userList.length);
     const ganador = userList[ganadorIndex];
 
-    // Muestra el resultado del sorteo
-    Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
-
+    // Asigna una tarea al ganador
+    assignTaskToWinner(ganador);
+   
     // Elimina al ganador de la lista
     const nuevaLista = userList.filter((user) => user.id !== ganador.id);
     setUserList(nuevaLista);
   };
-    //SEGUNDA PRUEBA//
+    //SORTEO//
 
 
 
