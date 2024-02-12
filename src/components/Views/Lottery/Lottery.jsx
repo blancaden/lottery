@@ -3,6 +3,7 @@ import { userService } from '../../../config';
 import Swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Roulette from 'react-roulette-game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const { getUsers, deleteUser, updateUser } = userService;
@@ -38,6 +39,7 @@ const UserList = () => {
 
   //   Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
   // };
+    //primera prueba de sorteo//
 
   //SEGUNDA PRUEBA//
 
@@ -57,6 +59,9 @@ const UserList = () => {
     const nuevaLista = userList.filter((user) => user.id !== ganador.id);
     setUserList(nuevaLista);
   };
+    //SEGUNDA PRUEBA//
+
+
 
   
   return (
