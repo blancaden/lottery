@@ -1,5 +1,5 @@
 import React from "react";
-import UserList from "../../UserList/userList";
+import UserList from "../../UserList/UserList";
 
 function PageAdmin(){
     return(
