@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const { getUsers, deleteUser, updateUser } = userService;
 
@@ -93,12 +94,13 @@ const UserList = () => {
       </Table>
 
       <section className="listButtons">
-        <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
-        {/* Button for saving list removed */}
-        <Button variant="success" onClick={handleSorteo}>
-          Realizar Sorteo
-        </Button>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
+      <Link to="/PageAdmin" className="btn-edit-list">
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
+      </Link>
+      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSorteo}>Realizar Sorteo</Button>
       </section>
+
     </div>
   );
 };
