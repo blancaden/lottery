@@ -3,7 +3,6 @@ import { userService } from '../../../config';
 import Swal from 'sweetalert2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import Roulette from 'react-roulette-game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const { getUsers, deleteUser, updateUser } = userService;
@@ -27,21 +26,6 @@ const UserList = () => {
     }
   };
 
-  //primera prueba de sorteo//
-  // const handleSorteo = () => {
-  //   if (userList.length === 0) {
-  //     Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
-  //     return;
-  //   }
-
-  //   const ganadorIndex = Math.floor(Math.random() * userList.length);
-  //   const ganador = userList[ganadorIndex];
-
-  //   Swal.fire('¡Sorteo!', `El ganador es: ${ganador.userName} ${ganador.userSurname1} (${ganador.userEmail})`, 'info');
-  // };
-    //primera prueba de sorteo//
-
-  //SEGUNDA PRUEBA//
 
   const handleSorteo = () => {
     if (userList.length === 0) {
@@ -59,8 +43,7 @@ const UserList = () => {
     const nuevaLista = userList.filter((user) => user.id !== ganador.id);
     setUserList(nuevaLista);
   };
-    //SEGUNDA PRUEBA//
-
+  
 
 
   
