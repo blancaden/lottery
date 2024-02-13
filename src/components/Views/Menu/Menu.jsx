@@ -23,7 +23,7 @@ const Menu = () => {
       </div>
 
       <section className='menuImg'>
-          <img src="img/img-homeView.png" alt="santa-tecla" />
+          <img src="img/insti-menuView.png" alt="santa-tecla" />
       </section>
     </>
   )

@@ -5,7 +5,7 @@
 
 .menuImg img {
   width: 100%;
-  height: 120vh;
+  height: 100%;
   opacity: 0.5;
 }
 
@@ -26,6 +26,8 @@
     align-items: center;
     padding: 20px;
     margin-right: 100px;
+    margin-top: 25px;
+    margin-bottom: 20px;
   }
 
   .groupButtons Button,
@@ -35,10 +37,10 @@
   }
 
   .groupButtons Button {
-    margin-bottom: 7px;
+    margin-bottom: 15px;
   }
 
   .menuImg img {
-    height: 50%;
+      content: url('img/insti-menuView-iphone.png')
   }
 }
