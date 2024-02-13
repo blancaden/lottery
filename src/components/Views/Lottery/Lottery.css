@@ -1,5 +1,30 @@
-.roulette-list {
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ajusta según sea necesario para ocupar toda la altura de la ventana */
     display: flex;
     flex-direction: column;
-    align-content: center;
-}
+  }
+  
+  #root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Ajusta según sea necesario */
+  }
+  
+  .listButtons {
+    margin-top: 20px; /* Ajusta según sea necesario */
+  }
+  
+  footer {
+    background-color: #f8f9fa; /* Ajusta según sea necesario */
+    padding: 10px;
+    text-align: center;
+  }
