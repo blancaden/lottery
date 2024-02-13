@@ -13,6 +13,16 @@
     padding-bottom: 5%;
 }
 
+.formBody button{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 20vh;
+}
+
+.formBody table{
+margin-top: 50px;
+}
+
 .formBody--header button {
     height: fit-content;
 }
@@ -116,4 +126,5 @@
     .listRecords p button {
         height: fit-content;
     }
+    
 }

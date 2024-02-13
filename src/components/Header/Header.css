@@ -1,17 +1,14 @@
 * {
     padding: 0;
     margin: 0;
-    
 }
-
-
 
 .nav-bar {
     display: grid;
     grid-template-columns: auto auto;
     background-color: #5584AC;
-
-
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .nav-content {
@@ -33,4 +30,21 @@
     background-color: #95D1CC;
 }
 
+@media screen and (max-width: 431px) {
+    .nav-bar {
+        width: 425px;
+        margin-left: -15px;
+        padding-top: 15px;
+        padding-left: 15px;
+    }
 
+    .btn-log {
+
+        width: 90px;
+        height: 50px;
+        border: none;
+        font-family: 'Verdana', 'sans-serif';
+        border-radius: 40px;
+        background-color: #95D1CC;
+    }
+}

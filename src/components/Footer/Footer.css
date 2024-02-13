@@ -1,22 +1,20 @@
 .footer_home {
     background-color: #5584AC;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-family: 'Verdana', 'sans-serif';
+    /* position: fixed; */
     height: 80px;
     font-weight: lighter;
      width: 100%;
      bottom: 0;
-    /* margin-top: 50px; */
-    
 }
 
-
 .comment1 {
-   
+
     margin-top: 25px;
     margin-left: 10px;
-   
+
 }
 
 #comment2 {
@@ -50,7 +48,7 @@
     justify-content: flex-start;
     align-items: start;
     margin-top: 2%;
-    
+
 }
 
 #comment2b {
@@ -66,7 +64,7 @@
     height: 20px;
     margin-right: 5%;
     margin-top: 2%;
-    
+
 }
 
 #comment3b {
@@ -79,3 +77,22 @@
     height: 20px;
 }
 
+@media screen and (max-width: 431px) {
+
+    .footer_home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        padding-top: 20px;
+    }
+
+    .comment1,
+    #comment2,
+    #comment3 {
+        margin: 5px;
+        line-height: 3px;
+    }
+}

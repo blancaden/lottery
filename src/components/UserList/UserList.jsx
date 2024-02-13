@@ -127,7 +127,7 @@ const UserList = () => {
               <label htmlFor="userPhone">Phone Number</label>
               <input type="number" name="userPhone" value={inputValues.userPhone} onChange={handleInputChange} />
 
-              <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleAddUserToList}>{buttonText}</Button>
+              <Button style={{ backgroundColor: '#22577E', color: 'white', marginLeft: '10px'}} onClick={handleAddUserToList}>{buttonText}</Button>
             </section>
           </section>
 

@@ -2,120 +2,147 @@
 .main {
     display: flex;
     flex-direction: column;
- 
 }
 
 .school-name-main,
 .college,
 .login {
-    
     display: flex;
 }
 
 .title-image {
     width: 70%;
-    height: 30vh;
-    
+    height: 20vh;
 }
 
 .title-image img {
-    width: 90%;
+    display: block;
+    width: 70%;
     height: 100%;
-    
-   
+    margin-left: 15vh;
 }
 
-.person-list {
+.margaret-quote {
     display: flex;
     background-color: #B0C8DC;
+    width: 170vh;
 }
 
-.person-list img {
-    margin-top: 10px;
-    width: 130px;
-    margin-left: 70px;
+.margaret-quote img {
+    margin-top: 15px;
+    margin-left: 60px;
+    height: 80%;
 }
 
-.person-list p {
-    font-size: 36px;
-    font-weight: bold;
+.quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.quote h3 {
+    font-family: 'Verdana', 'sans-serif';
+    font-size: 20px;
+    font-style: italic;
     text-align: center;
-    margin-right: 25px;
-    margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
     line-height: 1.3;
+    color: #22577E;
+}
+
+.quote p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
     color: #3774A7;
-    
 }
 
 .college img {
-  
     width: 100%;
 }
 
 .login {
-    
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+}
+
+.login strong {
+    background-color: #95D1CC;
+    width: 150px;
+    height: 60px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 431px) {
     
-    
-     
-}
-.login strong{
-   background-color: #95D1CC;
-   width: 150px;
-   height: 60px;
-   border-radius: 50px;
-   margin-bottom: 20px;
-}
-
-.button-login {
-
-    margin-top: 20%;
-    color: #22577E;
-    font-size: 40px;
-    text-decoration: none;
-    margin-left: 20px;
-   
-   
-}
-
-@media screen and (max-width: 430px) {
-
     .main {
         display: flex;
         flex-direction: column;
-       
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0;
+        min-height: 70vh;
     }
 
-    .school-name-main{
+    .college{
+        height: 35vh;
+    }
+
+    .school-name-main {
         display: flex;
         flex-direction: column;
         width: 100%;
-        
-      
     }
 
-    .title-image{
-        width: 100%;
-        height: 200px;
+    .title-image {
+        width: 100%; 
+        height: auto; 
     }
 
-    .person-list {
+    .title-image img {
+        content: url('img/title.png');
+        height: 162px;
+        width: 373px;
+        margin-left: 30px;
+    }
+
+    .margaret-quote {
         display: flex;
-        
+        gap: 5%;
+        padding: 20px;
+        align-items: center;
+        height: 120px;
+        width: 425px;
     }
 
-    .person-list img {
-        margin-left: 10px;
-    }
-    
-    .person-list p{
-        margin-top: 40px;
+    .margaret-quote img {
+        height: 80px;
+        width: 80px;
+        margin-left: 20px;
         margin-bottom: 10px;
     }
-    
 
+    .margaret-quote h3 {
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.3;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .margaret-quote p {
+        font-size: 12px;
+        text-align: center;
+        color: #3774A7;
+        margin-bottom: 40px;
+    }
+
+    .college img {
+        content: url('img/insti-iphone.png')
+    }
 }
