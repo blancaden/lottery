@@ -5,13 +5,30 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import { Wheel } from "react-custom-roulette";
 
 const { getUsers, deleteUser, updateUser } = userService;
 
+  const bgs = [
+    "#4166E9",
+    "#27B1DD",
+    "#DD5570",
+    "#028C84",
+    "#1DC25F",
+    "#C96014",
+    "#E3C216",
+    "#BB83F4",
+    "#6A32CB"
+  ];
+
 const UserList = () => {
   const [userList, setUserList] = useState([]);
-  const [tasks, setTasks] = useState(["Organizar fecha de exámenes", "Definir libros de texto", "Coordinar actividades de orientación", "Coordinar actividades de tutoría"]); // Define tus opciones de tareas
+  // const [tasks, setTasks] = useState(["organizar fecha de exámenes", "definir libros de texto", "coordinar actividades de orientación", "coordinar actividades de tutoría", "cuidado de pasillos", "limpieza de las aulas"]); // Define tus opciones de tareas
 
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+
+  
 
   const fetchUser = async () => {
     const users = await getUsers();
@@ -29,33 +46,21 @@ const UserList = () => {
     }
   };
 
-
-   //SORTEO//
-   const assignTaskToWinner = (ganador) => {
-    const tareaAsignada = tasks[Math.floor(Math.random() * tasks.length)];
-    Swal.fire('Tarea Asignada', `El ganador ${ganador.userName} ha sido asignado a la tarea: ${tareaAsignada}`, 'info');
+  const handleSpinClick = () => {
+    const newPrizeNumber = Math.floor(Math.random() * userList.length);
+    const winner = userList[newPrizeNumber];
+    
+    setPrizeNumber(newPrizeNumber);
+    setMustSpin(true);
   };
 
-  const handleSorteo = () => {
-    if (userList.length === 0) {
-      Swal.fire('Advertencia', 'La lista de usuarios está vacía', 'warning');
-      return;
+  
+  const wheelData = userList.map((user)=>{
+    return {
+      option: `${user.userName} ${user.userSurname1}`
     }
 
-    const ganadorIndex = Math.floor(Math.random() * userList.length);
-    const ganador = userList[ganadorIndex];
-
-    // Asigna una tarea al ganador
-    assignTaskToWinner(ganador);
-   
-    // Elimina al ganador de la lista
-    const nuevaLista = userList.filter((user) => user.id !== ganador.id);
-    setUserList(nuevaLista);
-  };
-  
-    //SORTEO//
-
-
+  })
 
   
   return (
@@ -98,11 +103,43 @@ const UserList = () => {
       <Link to="/PageAdmin" className="btn-edit-list">
       <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
       </Link>
-      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSorteo}>Realizar Sorteo</Button>
+      {/* <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSorteo}>Realizar Sorteo</Button> */}
       </section>
 
+     {
+      userList.length > 0 &&  
+      <section className="roulette-list">
+         <Wheel
+          mustStartSpinning={mustSpin}
+          prizeNumber={prizeNumber}
+          data={wheelData}
+          outerBorderWidth={1}
+          outerBorderColor="black"
+          pointerProps={{
+            src: "https://m3tkbw.csb.app/blazzio-sign.png",
+            style: { transform: "rotate(-100deg)" }
+          }}
+          textColors={["white"]}
+          backgroundColors={bgs}
+          onStopSpinning={() => {
+            setMustSpin(false);
+            Swal.fire('Sorteo exitoso', `El ganador ${wheelData[prizeNumber].option} ha sido asignado para la tarea`, 'info');
+          }}
+        />
+         <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSpinClick}>SPIN</Button>
+         
+      </section>
+
+     }
     </div>
   );
 };
 
 export default UserList;
+
+// return >>>>>>>>>>>> HTML 
+// react lee e interpreta { } como codigo JS
+// condicion           &&    ||           resultado
+
+// condicion 1 && condicion 2 && condicion 3 && HTML 
+// condicion 1 || condicion 2 || condicion 3 && HTML 

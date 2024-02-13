@@ -185,10 +185,6 @@ const UserList = () => {
           </section>
           
         </main>
-
-        {/* <footer className='footer'>
-          <section>© Fem-Coders</section>
-        </footer> */}
       </div>
     </>
   );
