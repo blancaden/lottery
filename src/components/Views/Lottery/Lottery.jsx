@@ -9,60 +9,65 @@ import { Wheel } from "react-custom-roulette";
 
 const { getUsers, deleteUser, updateUser } = userService;
 
-  const bgs = [
-    "#4166E9",
-    "#27B1DD",
-    "#DD5570",
-    "#028C84",
-    "#1DC25F",
-    "#C96014",
-    "#E3C216",
-    "#BB83F4",
-    "#6A32CB"
-  ];
+const bgs = [
+  "#4166E9",
+  "#27B1DD",
+  "#DD5570",
+  "#028C84",
+  "#1DC25F",
+  "#C96014",
+  "#E3C216",
+  "#BB83F4",
+  "#6A32CB"
+];
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
-  // const [tasks, setTasks] = useState(["organizar fecha de exámenes", "definir libros de texto", "coordinar actividades de orientación", "coordinar actividades de tutoría", "cuidado de pasillos", "limpieza de las aulas"]); // Define tus opciones de tareas
-
+  const [deletedUsers, setDeletedUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState([]);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
 
-  
-
   const fetchUser = async () => {
     const users = await getUsers();
-    setUserList(users);
+    // Set the initial selected state for each user
+    const updatedUsers = users.map(user => ({ ...user, selected: false }));
+    setUserList(updatedUsers);
   };
 
-  
   const handleDeleteUser = async (userId) => {
-    const status = await deleteUser(userId);
-    if (status === 200) {
-    Swal.fire('Éxito', 'El usuario se ha eliminado con éxito', 'success');
-      fetchUser();
-    } else {
-    Swal.fire('Error', 'Hubo un problema al eliminar el usuario', 'error');
+    const userToDelete = userList.find(user => user.id === userId);
+    if (userToDelete) {
+      setDeletedUsers(prevDeleted => [...prevDeleted, userToDelete]);
+      setUserList(prevList => prevList.filter(user => user.id !== userId));
+      setSelectedUsers(prevSelected => prevSelected.filter(user => user.id !== userId));
+    }
+  };
+
+  const handleAddUserToSelection = (userId) => {
+    const userToAdd = userList.find(user => user.id === userId);
+    if (userToAdd && !userToAdd.selected) {
+      setSelectedUsers(prevSelected => [...prevSelected, userToAdd]);
+      setUserList(prevList => prevList.map(user => user.id === userId ? { ...user, selected: true } : user));
     }
   };
 
   const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * userList.length);
-    const winner = userList[newPrizeNumber];
-    
-    setPrizeNumber(newPrizeNumber);
-    setMustSpin(true);
+    if (selectedUsers.length > 0) {
+      const newPrizeNumber = Math.floor(Math.random() * selectedUsers.length);
+      setPrizeNumber(newPrizeNumber);
+      setMustSpin(true);
+    } else {
+      Swal.fire('Error', 'No hay usuarios seleccionados para el sorteo', 'error');
+    }
   };
 
-  
-  const wheelData = userList.map((user)=>{
+  const wheelData = selectedUsers.map((user) => {
     return {
       option: `${user.userName} ${user.userSurname1}`
     }
+  });
 
-  })
-
-  
   return (
     <div>
       <Table striped bordered hover size="sm" responsive="lg">
@@ -79,7 +84,7 @@ const UserList = () => {
           </tr>
         </thead>
         <tbody>
-          {userList.map((user, index) => (
+          {[...userList, ...deletedUsers].map((user, index) => (
             <tr key={index}>
               <td>{user.id}</td>
               <td>{user.userName}</td>
@@ -88,10 +93,14 @@ const UserList = () => {
               <td>{user.userEmail}</td>
               <td>{user.userPhone}</td>
               <td>
-                <Button variant="outline-danger" size="sm" onClick={() => handleDeleteUser(user.id)}>Eliminar</Button>
+                {!deletedUsers.includes(user) && (
+                  <Button variant="outline-danger" size="sm" onClick={() => handleDeleteUser(user.id)}>Eliminar</Button>
+                )}
               </td>
               <td>
-                <Button variant="outline-info" size="sm" onClick={() => handleUser(user.id)}>Añadir</Button>
+                {!deletedUsers.includes(user) && !user.selected && (
+                  <Button variant="outline-info" size="sm" onClick={() => handleAddUserToSelection(user.id)}>Añadir</Button>
+                )}
               </td>
             </tr>
           ))}
@@ -99,47 +108,36 @@ const UserList = () => {
       </Table>
 
       <section className="listButtons">
-      <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
-      <Link to="/PageAdmin" className="btn-edit-list">
-      <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
-      </Link>
-      {/* <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSorteo}>Realizar Sorteo</Button> */}
+        <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
+        <Link to="/PageAdmin" className="btn-edit-list">
+          <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
+        </Link>
       </section>
 
-     {
-      userList.length > 0 &&  
-      <section className="roulette-list">
-         <Wheel
-          mustStartSpinning={mustSpin}
-          prizeNumber={prizeNumber}
-          data={wheelData}
-          outerBorderWidth={1}
-          outerBorderColor="black"
-          pointerProps={{
-            src: "https://m3tkbw.csb.app/blazzio-sign.png",
-            style: { transform: "rotate(-100deg)" }
-          }}
-          textColors={["white"]}
-          backgroundColors={bgs}
-          onStopSpinning={() => {
-            setMustSpin(false);
-            Swal.fire('Sorteo exitoso', `El ganador ${wheelData[prizeNumber].option} ha sido asignado para la tarea`, 'info');
-          }}
-        />
-         <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSpinClick}>SPIN</Button>
-         
-      </section>
-
-     }
+      {selectedUsers.length > 0 &&
+        <section className="roulette-list">
+          <Wheel
+            mustStartSpinning={mustSpin}
+            prizeNumber={prizeNumber}
+            data={wheelData}
+            outerBorderWidth={1}
+            outerBorderColor="black"
+            pointerProps={{
+              src: "https://m3tkbw.csb.app/blazzio-sign.png",
+              style: { transform: "rotate(-100deg)" }
+            }}
+            textColors={["white"]}
+            backgroundColors={bgs}
+            onStopSpinning={() => {
+              setMustSpin(false);
+              Swal.fire('Sorteo exitoso', `El ganador ${wheelData[prizeNumber].option} ha sido asignado para la tarea`, 'info');
+            }}
+          />
+          <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={handleSpinClick}>SPIN</Button>
+        </section>
+      }
     </div>
   );
 };
 
 export default UserList;
-
-// return >>>>>>>>>>>> HTML 
-// react lee e interpreta { } como codigo JS
-// condicion           &&    ||           resultado
-
-// condicion 1 && condicion 2 && condicion 3 && HTML 
-// condicion 1 || condicion 2 || condicion 3 && HTML 
