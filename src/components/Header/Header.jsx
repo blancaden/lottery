@@ -43,6 +43,7 @@ const Header = ({ isLogoutVisible }) => {
                 Logout
               </button>
             )}
+            
           </nav>
         </section>
       </header>
