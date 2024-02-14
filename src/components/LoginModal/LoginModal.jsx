@@ -57,7 +57,7 @@ const LoginModal = () => {
         <>
             <div className='principal'>
                 <div className='col-md-1 mx-auto text-center'>
-                    <Button style={{ backgroundColor: '#22577E', color: 'white', margin: 30, padding: 15}} size="lg" onClick={abrirModal}>ACCESS</Button>{' '}
+                    <Button style={{ backgroundColor: '#22577E', color: 'white', margin: 30, padding: 15, marginBottom: 30}} size="lg" onClick={abrirModal}>ACCESS</Button>{' '}
                 </div>
             </div>
 
