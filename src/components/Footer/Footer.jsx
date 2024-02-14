@@ -2,10 +2,10 @@ import React from 'react'
 import './Footer.css'
 
 
-const Footer = () => {
+const Footer = ({ esFixed }) => {
   return (
     <>
-    <div className='footer-container'>
+   <div className={`footer-container ${esFixed ? 'fixed' : ''}`}>
       <footer className="footer_home">
        <div className="comment1">
         <p> &copy;2024 G3 Tecnologys</p>

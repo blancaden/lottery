@@ -69,7 +69,8 @@ const UserList = () => {
   });
 
   return (
-    <div>
+    <div className='contentLottery'>
+
       <Table striped bordered hover size="sm" responsive="lg">
         <thead>
           <tr>
@@ -107,10 +108,10 @@ const UserList = () => {
         </tbody>
       </Table>
 
-      <section className="listButtons">
-        <Button style={{ backgroundColor: '#22577E', color: 'white' }} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
+   <section className="listButtons">
+        <Button style={{ backgroundColor: '#22577E', color: 'white', marginBottom: '10vh', marginLeft: '10vh'}} onClick={() => fetchUser()}>Cargar lista</Button>{' '}
         <Link to="/PageAdmin" className="btn-edit-list">
-          <Button style={{ backgroundColor: '#22577E', color: 'white' }}>Editar lista</Button>{' '}
+          <Button style={{ backgroundColor: '#22577E', color: 'white', marginBottom: '10vh', marginLeft: '3vh'}}>Editar lista</Button>{' '}
         </Link>
       </section>
 

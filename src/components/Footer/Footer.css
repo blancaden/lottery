@@ -9,6 +9,11 @@
      width: 100%;
      bottom: 0;
 }
+.footer-container.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 
 .comment1 {
 
